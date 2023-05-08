@@ -1,0 +1,3 @@
+[submodule "ips4o"]
+	path = ips4o
+	url = git@git.scc.kit.edu:ucrhh/ips4o_submodule.git
