@@ -1,7 +1,7 @@
 extern crate bindgen;
 
 fn main() {
-    let dst = cmake::build("ips4o");
+    let dst = cmake::build("ffi");
     // Tell cargo to look for shared libraries in the specified directory
     // println!("cargo:rustc-link-search=.");
 
@@ -12,7 +12,7 @@ fn main() {
     println!("cargo:rustc-link-lib=cpp_ips4o");
 
     // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!("cargo:rerun-if-changed=ips4o/src");
+    println!("cargo:rerun-if-changed=ffi");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -20,7 +20,7 @@ fn main() {
     let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
-        .header("ips4o/src/example.hpp")
+        .header("ffi/example.hpp")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
