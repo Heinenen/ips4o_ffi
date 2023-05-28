@@ -510,3 +510,7 @@ extern "C" {
     #[link_name = "\u{1}_Z8sort_u32PjS_"]
     pub fn sort_u32(begin: *mut u32, end: *mut u32);
 }
+extern "C" {
+    #[link_name = "\u{1}_Z12sort_par_u32PjS_"]
+    pub fn sort_par_u32(begin: *mut u32, end: *mut u32);
+}
