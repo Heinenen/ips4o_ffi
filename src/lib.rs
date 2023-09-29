@@ -11,6 +11,15 @@ pub fn sort_par_u32(v: &mut [u32]) {
     unsafe { bindings::sort_par_u32(range.start, range.end) }
 }
 
+pub fn sort_i32(v: &mut [i32]) {
+    let range = v.as_mut_ptr_range();
+    unsafe { bindings::sort_i32(range.start, range.end) }
+}
+pub fn sort_par_i32(v: &mut [i32]) {
+    let range = v.as_mut_ptr_range();
+    unsafe { bindings::sort_par_i32(range.start, range.end) }
+}
+
 pub fn insertion_sort_u32(v: &mut [u32]) {
     let range = v.as_mut_ptr_range();
     unsafe { bindings::insertion_sort_u32(range.start, range.end) }
@@ -18,7 +27,7 @@ pub fn insertion_sort_u32(v: &mut [u32]) {
 
 #[cfg(test)]
 mod tests {
-    use crate::{bindings::ffi_test, sort_u32, sort_par_u32, insertion_sort_u32};
+    use crate::{bindings::ffi_test, sort_u32, sort_par_u32, insertion_sort_u32, sort_par_i32};
 
     #[test]
     fn test_ffi() {
@@ -49,6 +58,15 @@ mod tests {
         let mut compare = v.clone();
         compare.reverse();
         sort_par_u32(&mut v);
+        assert!(v == compare);
+    }
+
+    #[test]
+    fn test_sort_par_i32() {
+        let mut v = vec![10i32, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+        let mut compare = v.clone();
+        compare.reverse();
+        sort_par_i32(&mut v);
         assert!(v == compare);
     }
 }

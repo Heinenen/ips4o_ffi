@@ -75,6 +75,7 @@ pub const __HAVE_GENERIC_SELECTION: u32 = 0;
 pub const _GLIBCXX_HAVE_FLOAT128_MATH: u32 = 1;
 pub const _GLIBCXX_GTHREAD_USE_WEAK: u32 = 0;
 pub const _GLIBCXX_CPU_DEFINES: u32 = 1;
+pub const _GLIBCXX_USE_STD_SPEC_FUNCS: u32 = 1;
 pub const _GLIBCXX_FAST_MATH: u32 = 0;
 pub const _GLIBCXX_USE_FLOAT128: u32 = 1;
 pub const _GLIBCXX_FLOAT_IS_IEEE_BINARY32: u32 = 1;
@@ -83,6 +84,13 @@ pub const _GLIBCXX_HAVE_BUILTIN_HAS_UNIQ_OBJ_REP: u32 = 1;
 pub const _GLIBCXX_HAVE_BUILTIN_IS_AGGREGATE: u32 = 1;
 pub const _GLIBCXX_HAVE_BUILTIN_IS_SAME: u32 = 1;
 pub const _GLIBCXX_HAVE_BUILTIN_LAUNDER: u32 = 1;
+pub const _PSTL_VERSION: u32 = 12000;
+pub const _PSTL_VERSION_MAJOR: u32 = 12;
+pub const _PSTL_VERSION_MINOR: u32 = 0;
+pub const _PSTL_VERSION_PATCH: u32 = 0;
+pub const _PSTL_USAGE_WARNINGS: u32 = 0;
+pub const _PSTL_UDR_PRESENT: u32 = 0;
+pub const _PSTL_PRAGMA_LOCATION: &[u8; 26usize] = b" [Parallel STL message]: \0";
 pub const _GLIBCXX_HAVE_ACOSF: u32 = 1;
 pub const _GLIBCXX_HAVE_ACOSL: u32 = 1;
 pub const _GLIBCXX_HAVE_ALIGNED_ALLOC: u32 = 1;
@@ -528,6 +536,14 @@ extern "C" {
 extern "C" {
     #[link_name = "\u{1}_Z12sort_par_u32PjS_"]
     pub fn sort_par_u32(begin: *mut u32, end: *mut u32);
+}
+extern "C" {
+    #[link_name = "\u{1}_Z8sort_i32PiS_"]
+    pub fn sort_i32(begin: *mut i32, end: *mut i32);
+}
+extern "C" {
+    #[link_name = "\u{1}_Z12sort_par_i32PiS_"]
+    pub fn sort_par_i32(begin: *mut i32, end: *mut i32);
 }
 extern "C" {
     #[link_name = "\u{1}_Z18insertion_sort_u32PjS_"]
